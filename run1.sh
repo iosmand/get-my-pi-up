@@ -4,8 +4,9 @@ sudo apt full-upgrade -y
 #sudo apt autoremove
 
 ##raspi-config
-sudo raspi-config #fan
-sudo nano /boot/firmware/config.txt #son satır derece ayarı
+sudo apt install raspi-config
+#sudo raspi-config #fan
+#sudo nano /boot/firmware/config.txt #son satır derece ayarı
 
 ##set swap
 ####https://linuxhint.com/increase-swap-raspberry-pi/
@@ -36,5 +37,5 @@ cat /proc/sys/vm/vfs_cache_pressure
 
 ##remove multipath
 #https://waldorf.waveform.org.uk/2022/making-jammy-less-dodgy.html
-sudo sed -i -e 's/$/ multipath=off/' /boot/firmware/cmdline.txt
-sudo reboot
+#sudo sed -i -e 's/$/ multipath=off/' /boot/firmware/cmdline.txt
+#sudo reboot
