@@ -15,7 +15,7 @@ sudo docker run -d -p 9000:9000 -p 9443:9443 -p 8000:8000 --name=portainer --res
 
 ##install hass
 sudo dpkg -i ./hass/os-agent_1.4.1_linux_aarch64.deb
-
+sudo dpkg -i ./hass/supervised-installer/homeassistant-supervised.deb
 
 ##vnc önce lubuntu
 sudo apt install --install-recommends --install-suggests lubuntu-desktop -y
