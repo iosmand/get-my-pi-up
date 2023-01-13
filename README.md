@@ -8,8 +8,14 @@ sudo apt full-upgrade -y
 #sudo apt autoremove
 
 ##raspi-config
-sudo raspi-config #fan
-sudo nano /boot/firmware/config.txt #son satır derece ayarı
+sudo apt install raspi-config libsensors-config libsensors5 -y
+sudo apt install -y uidmap apparmor jq wget curl udisks2 libglib2.0-bin network-manager dbus lsb-release systemd-journal-remote
+#sudo raspi-config #fan
+echo 'dtoverlay=gpio-fan,gpiopin=14,temp=45000' | sudo tee -a /boot/firmware/config.txt
+echo 'hdmi_force_hotplug=1' | sudo tee -a /boot/firmware/config.txt
+echo 'hdmi_group=2' | sudo tee -a /boot/firmware/config.txt
+echo 'hdmi_mode=82' | sudo tee -a /boot/firmware/config.txt
+#sudo nano /boot/firmware/config.txt #son satır derece ayarı
 
 ##set swap
 ####https://linuxhint.com/increase-swap-raspberry-pi/
@@ -42,10 +48,11 @@ cat /proc/sys/vm/vfs_cache_pressure
 #https://waldorf.waveform.org.uk/2022/making-jammy-less-dodgy.html
 sudo sed -i -e 's/$/ multipath=off/' /boot/firmware/cmdline.txt
 sudo reboot
+```
 
+```
 #mkdir ~/setup
 #cd ~/setup
-sudo apt install -y uidmap
 ##get-docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 DRY_RUN=1
@@ -60,13 +67,16 @@ sudo docker run -d -p 9000:9000 -p 9443:9443 -p 8000:8000 --name=portainer --res
 
 ##install hass
 sudo dpkg -i ./hass/os-agent_1.4.1_linux_aarch64.deb
+sudo dpkg -i ./hass/supervised-installer/homeassistant-supervised.deb
+sudo reboot
+```
 
-
+```
 ##vnc önce lubuntu
-sudo apt install --install-recommends --install-suggests lubuntu-desktop -y
 sudo apt install libraspberrypi0 -y
 sudo apt install libice6 libsm6 libxtst6 -y
 sudo apt install lightdm -y
+sudo apt install --install-recommends --install-suggests lubuntu-desktop -y
 dirr=$(pwd)
 cd /usr/lib/aarch64-linux-gnu
 sudo ln libvcos.so /usr/lib/libvcos.so.0
@@ -92,5 +102,5 @@ sudo systemctl start vncserver-x11-serviced.service
 #https://github.com/mtbiker-s/ubuntu20.10-rpi-install-vnc
 #wget https://raw.githubusercontent.com/mtbiker-s/ubuntu20.10-rpi-install-vnc/main/install-real-vnc-server-rpi4-8gb-ubuntu.sh
 #wget https://archive.raspberrypi.org/debian/pool/main/r/realvnc-vnc/realvnc-vnc-server_6.10.1.47571_arm64.deb
-#sudo snap install snapd snap-store chromium
+sudo snap install snap-store chromium
 ```
