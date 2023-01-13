@@ -1,6 +1,6 @@
 #mkdir ~/setup
 #cd ~/setup
-sudo apt install -y uidmap
+sudo apt install -y uidmap apparmor jq wget curl udisks2 libglib2.0-bin network-manager dbus lsb-release systemd-journal-remote
 ##get-docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 DRY_RUN=1
