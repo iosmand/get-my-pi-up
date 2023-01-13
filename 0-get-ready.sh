@@ -7,6 +7,10 @@ sudo apt full-upgrade -y
 sudo apt install raspi-config libsensors-config libsensors5 -y
 sudo apt install -y uidmap apparmor jq wget curl udisks2 libglib2.0-bin network-manager dbus lsb-release systemd-journal-remote
 #sudo raspi-config #fan
+echo 'dtoverlay=gpio-fan,gpiopin=14,temp=45000' | sudo tee -a /boot/firmware/config.txt
+echo 'hdmi_force_hotplug=1' | sudo tee -a /boot/firmware/config.txt
+echo 'hdmi_group=2' | sudo tee -a /boot/firmware/config.txt
+echo 'hdmi_mode=82' | sudo tee -a /boot/firmware/config.txt
 #sudo nano /boot/firmware/config.txt #son satır derece ayarı
 
 ##set swap
@@ -38,5 +42,5 @@ cat /proc/sys/vm/vfs_cache_pressure
 
 ##remove multipath
 #https://waldorf.waveform.org.uk/2022/making-jammy-less-dodgy.html
-#sudo sed -i -e 's/$/ multipath=off/' /boot/firmware/cmdline.txt
+sudo sed -i -e 's/$/ multipath=off/' /boot/firmware/cmdline.txt
 sudo reboot
