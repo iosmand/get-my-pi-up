@@ -4,7 +4,7 @@ sudo apt full-upgrade -y
 #sudo apt autoremove
 
 ##raspi-config
-sudo apt install raspi-config
+sudo apt install raspi-config libsensors-config libsensors5 -y
 #sudo raspi-config #fan
 #sudo nano /boot/firmware/config.txt #son satır derece ayarı
 
