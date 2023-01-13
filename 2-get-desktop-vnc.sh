@@ -1,8 +1,8 @@
 ##vnc önce lubuntu
-sudo apt install --install-recommends --install-suggests lubuntu-desktop -y
 sudo apt install libraspberrypi0 -y
 sudo apt install libice6 libsm6 libxtst6 -y
 sudo apt install lightdm -y
+sudo apt install --install-recommends --install-suggests lubuntu-desktop -y
 dirr=$(pwd)
 cd /usr/lib/aarch64-linux-gnu
 sudo ln libvcos.so /usr/lib/libvcos.so.0
@@ -28,4 +28,4 @@ sudo systemctl start vncserver-x11-serviced.service
 #https://github.com/mtbiker-s/ubuntu20.10-rpi-install-vnc
 #wget https://raw.githubusercontent.com/mtbiker-s/ubuntu20.10-rpi-install-vnc/main/install-real-vnc-server-rpi4-8gb-ubuntu.sh
 #wget https://archive.raspberrypi.org/debian/pool/main/r/realvnc-vnc/realvnc-vnc-server_6.10.1.47571_arm64.deb
-#sudo snap install snapd snap-store chromium
+sudo snap install snap-store chromium
