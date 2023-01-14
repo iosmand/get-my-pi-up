@@ -2,7 +2,7 @@
 sudo apt install libraspberrypi0 -y
 sudo apt install libice6 libsm6 libxtst6 -y
 sudo apt install lightdm -y
-sudo apt install --install-recommends --install-suggests lubuntu-desktop -y
+sudo apt install lubuntu-desktop -y
 dirr=$(pwd)
 cd /usr/lib/aarch64-linux-gnu
 sudo ln libvcos.so /usr/lib/libvcos.so.0
