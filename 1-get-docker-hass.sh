@@ -15,4 +15,5 @@ dockerd-rootless-setuptool.sh install
 ##install hass
 sudo dpkg -i ./hass/os-agent_1.4.1_linux_aarch64.deb
 sudo dpkg -i ./hass/supervised-installer/homeassistant-supervised.deb
+sudo mv /boot/firmware/network-config ~/
 sudo reboot
