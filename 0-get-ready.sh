@@ -1,11 +1,13 @@
 ##install ubuntu
 sudo apt update
-sudo apt full-upgrade -y
-#sudo apt autoremove
 
 ##raspi-config
 sudo apt install raspi-config libsensors-config libsensors5 -y
 sudo apt install -y uidmap apparmor jq wget curl udisks2 libglib2.0-bin network-manager dbus lsb-release systemd-journal-remote
+
+sudo apt full-upgrade -y
+sudo apt autoremove
+
 #sudo raspi-config #fan
 echo 'dtoverlay=gpio-fan,gpiopin=14,temp=45000' | sudo tee -a /boot/firmware/config.txt
 echo 'hdmi_force_hotplug=1' | sudo tee -a /boot/firmware/config.txt
